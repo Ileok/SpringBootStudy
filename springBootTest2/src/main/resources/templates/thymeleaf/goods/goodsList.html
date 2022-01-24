@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+╔═════•| ✿ |•═════╗<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;제품 리스트 페이지 입니다<br/>
+╚═════•| ✿ |•═════╝<br/>
+<table border=1>
+	<tr><td>제품번호</td><td>제품이름</td><td>제품가격</td><td>제조사</td></tr>
+	<th:block th:each=" dto : ${list}">
+	<tr><td><a th:href="@{goodsInfo(num=${dto.goodsNum })}">[[${dto.goodsNum}]]</a></td>
+		<td><a th:href="@{goodsInfo(num=${dto.goodsNum })}">[[${dto.goodsName}]]</a></td>
+	    <td>[[${dto.goodsPrice}]]</td>
+	    <td>[[${dto.goodsCompany}]]</td></tr>
+	</th:block>
+</table>
+<a href="goodsWrite">☆★상품등록★☆</a>
+</body>
+</html>

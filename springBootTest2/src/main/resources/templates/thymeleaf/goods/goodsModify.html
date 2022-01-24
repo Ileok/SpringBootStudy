@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+ <br/>
+|￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣| <br/>
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;제품 수정 페이지입니다.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br/>
+|＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿| <br/>
+　&nbsp;&nbsp;&nbsp;&nbsp;　        ᕱ ᕱ  ||<br/>
+　&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;( ･ω･ ||<br/>
+ &nbsp;&nbsp;&nbsp;&nbsp; 　         /　つΦ<br/>
+<form action="goodsUpdate" method="post" name="frm" id="frm">
+	제품 번호: <input type="text" name="goodsNum" th:value="${goodsDTO.goodsNum}" readonly="readonly" /><br />
+   제품 이름: <input type="text" name="goodsName" th:value="${goodsDTO.goodsName}"/><br/>
+   제품 가격: <input type="number" name="goodsPrice" min=1000  th:value="${goodsDTO.goodsPrice}"/><br/>
+   제&nbsp;&nbsp;조&nbsp;&nbsp;일: <input type="date" name="goodsDate" th:value="${#dates.format(goodsDTO.goodsDate, 'yyyy-MM-dd')}"/><br/>
+   제품 설명: <textarea rows="6" cols="40" name="goodsContent">[[${goodsDTO.goodsContent}]]</textarea><br/>
+   수&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;량: <input type="number" min=1 name="goodsQty" th:value="${goodsDTO.goodsQty}"><br/>
+   제&nbsp;&nbsp;조&nbsp;&nbsp;사: <input type="text" name="goodsCompany" th:value="${goodsDTO.goodsCompany}"/><br/>
+	<input type="submit" value="제품 수정 완료" />
+</form>
+</body>
+</html>

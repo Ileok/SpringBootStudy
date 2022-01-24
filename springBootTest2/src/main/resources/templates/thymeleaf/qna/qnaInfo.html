@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+상세페이지  |  조회수 : [[${dto.visitCount }]]<br />
+글번호 : [[${dto.qnaNum}]]<br />
+제목 : [[${dto.qnaSubject }]]<br />
+내용 : [[${dto.qnaContent }]]<br />
+작성일 : <span th:text="${#dates.format(dto.qnaRegiDate,'yyyy-MM-dd')}"></span><br />
+<a th:href="@{qnaUpdate(num=${dto.qnaNum})}">수정</a> | 
+<a th:href="@{qnaDel(num=${dto.qnaNum})}">삭제</a> | 
+<a href="qnaList" >QnA 리스트</a>
+</body>
+</html>

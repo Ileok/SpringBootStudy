@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 	
+	"-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="springBootTest2.mapper.LibraryMapper">
+<update id="libraryUpdate" parameterType="libdto">
+	update library
+	set lib_writer = #{libWriter}, lib_subject = #{libSubject},
+	    lib_content = #{libContent},
+	    original_file_name = #{originalFileName},
+	    store_file_name = #{storeFileName},
+	    file_size = #{fileSize}
+	where lib_num = #{libNum}
+</update>
+<delete id="libDelete" parameterType="string">
+	delete from library
+	where lib_num = #{libNum}
+</delete>
+<insert id="libInsert" parameterType="libdto">
+insert into library(lib_num, lib_writer, lib_subject,lib_content,mem_id,ip_addr, lib_pw,
+             original_file_name, store_file_name, file_size)
+values(seq_num1.nextval, #{libWriter}, #{libSubject}, #{libContent}, #{memId}, 
+		#{ipAddr}, #{libPw},#{originalFileName},#{storeFileName},
+		#{fileSize})
+</insert>
+<sql id="baseColumns">
+lib_num libNum, lib_writer libWriter, lib_subject libSubject,
+lib_content libContent,mem_id memId,ip_addr ipAddr, lib_pw libPw,
+original_file_name originalFileName, store_file_name storeFileName,
+file_size fileSize
+</sql>
+<select id="selectAll" resultType="libdto">
+	select <include refid="baseColumns" />
+	from library
+</select>
+<select id="selectOne" resultType="libdto">
+    select <include refid="baseColumns" />
+	from library
+	where lib_num = #{libNum}
+</select>
+</mapper>

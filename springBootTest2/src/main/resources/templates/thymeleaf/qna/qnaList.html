@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+QnA 리스트<br/>
+<table border= 1 width="600px">
+	<tr><th>글번호</th><th>제목</th><th>조회수</th></tr>
+	<th:block th:each = "dto: ${list}">
+		<tr>
+			<td><a th:href="@{qnaDetail(num=${dto.qnaNum})}">[[${dto.qnaNum}]]</a></td>
+			<td><a th:href="@{qnaDetail(num=${dto.qnaNum})}">[[${dto.qnaSubject}]]</a></td>
+			<td>[[${dto.visitCount}]]</td>
+		</tr>
+	</th:block>
+</table>
+<a href="qnaWrite">QnA 등록</a>
+</body>
+</html>

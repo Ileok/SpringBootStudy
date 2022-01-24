@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="emplibUpdate" method="post">
+<input type="hidden" name="libNum" th:value="${dto.libNum}" /><br />
+글쓴이 : <input type="text" name="libWriter" th:value="${dto.libWriter}" required="required"/><br />
+제목 : <input type="text" name="libSubject" th:value="${dto.libSubject}" required="required"/><br />
+내용 : <textarea rows="6" cols="50" name="libContent" required="required">[[${dto.libContent}]]</textarea><br />
+<input type="submit" value="등록"/>
+</form>
+</body>
+</html>
